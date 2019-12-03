@@ -4,10 +4,10 @@
       <input type="search" class="form-control" id="search-input" placeholder="Search docs..." aria-label="Search docs for..." autocomplete="off" data-docs-version="{{ .Site.Params.docs_version }}">
     </form>
 
-    {{ partial "docs-versions" . }}
+    {{ partialCached "docs-versions" . }}
 
     <button class="btn bd-search-docs-toggle d-md-none p-0 ml-3 order-3 ml-auto" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">
-     {{ partial "icons/menu.svg" (dict "width" "30" "height" "30") }}
+     {{ partialCached "icons/menu.svg" (dict "width" "30" "height" "30") }}
    </button>
   </div>
 </nav>

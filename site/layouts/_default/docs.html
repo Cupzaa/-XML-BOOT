@@ -4,10 +4,10 @@
     {{ partial "header" . }}
   </head>
   <body>
-    {{ partial "skippy" . }}
+    {{ partialCached "skippy" . }}
 
     {{ partial "docs-navbar" . }}
-    {{ partial "docs-subnav" . }}
+    {{ partialCached "docs-subnav" . }}
 
     <div class="container-xxl my-4 bd-layout">
       <div class="bd-sidebar">
@@ -17,7 +17,7 @@
       <div class="bd-intro pt-md-3 pl-lg-4">
         <h1 class="bd-title" id="content">{{ .Title | markdownify }}</h1>
         <p class="bd-lead">{{ .Page.Params.Description | markdownify }}</p>
-        {{ partial "ads" . }}
+        {{ partialCached "ads" . }}
       </div>
 
       {{ if (eq .Page.Params.toc true) }}
@@ -45,7 +45,7 @@
       </main>
     </div>
 
-    {{ partial "footer" . }}
+    {{ partialCached "footer" . }}
     {{ partial "scripts" . }}
   </body>
 </html>
