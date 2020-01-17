@@ -13,7 +13,7 @@ Colorize text with color utilities. If you want to colorize links, you can use t
 {{< example >}}
 {{< colors.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
-<p class="text-{{ .name }}{{ if eq .name "light" }} bg-dark{{ end }}">.text-{{ .name }}</p>
+<p class="text-{{ .name }} bg-{{ .contrast_color }}">.text-{{ .name }}</p>
 {{- end -}}
 {{< /colors.inline >}}
 <p class="text-body">.text-body</p>
@@ -30,7 +30,7 @@ Similar to the contextual text color classes, easily set the background of an el
 {{< example >}}
 {{< colors.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
-<div class="p-3 mb-2 bg-{{ .name }} {{ if or (eq .name "light") (eq .name "warning") }}text-dark{{ else }}text-white{{ end }}">.bg-{{ .name }}</div>
+<div class="p-3 mb-2 bg-{{ .name }} text-{{ .contrast_color }}">.bg-{{ .name }}</div>
 {{- end -}}
 {{< /colors.inline >}}
 <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
