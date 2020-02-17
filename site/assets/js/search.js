@@ -58,8 +58,10 @@
   })
 
   function hashSearch() {
-    if (window.location.hash && window.location.hash.indexOf('#search=') === 0) {
-      search.input.autocomplete.setVal(window.location.hash.slice(8))
+    var SEARCH_WORD = '#search='
+
+    if (window.location.hash && window.location.hash.indexOf(SEARCH_WORD) === 0) {
+      search.input.autocomplete.setVal(window.location.hash.slice(SEARCH_WORD.length))
       search.input.autocomplete.open()
     }
   }
