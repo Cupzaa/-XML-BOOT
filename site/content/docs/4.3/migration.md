@@ -42,6 +42,7 @@ Changes to our source Sass files and compiled CSS.
 - The `button-variant()` mixin now accepts 3 optional color parameters, for each button state, to override the color provided by `color-yiq()`. By default, these parameters will find which color provides more contrast against the button state's background color with `color-yiq()`.
 - The `button-outline-variant()` mixin now accepts an additional argument, `$active-color`, for setting the button's active state text color. By default, this parameter will find which color provides more contrast against the button's active background color with `color-yiq()`.
 - Ditch the Sass map merges, which makes it easier to remove redundant values. Keep in mind you now have to define all values in the Sass maps like `$theme-colors`. Check out how to deal with Sass maps on the [theming documentation]({{< docsref "/getting-started/theming#maps-and-loops" >}}).
+- The `box-shadow()` mixin now output as it is whatever when passed 'none' with multiple arguments. [See #30394](https://github.com/twbs/bootstrap/pull/30394).
 
 ## JavaScript
 
