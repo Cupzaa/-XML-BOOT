@@ -25,27 +25,21 @@ Here's how form validation works with Bootstrap:
 
 With that in mind, consider the following demos for our custom form validation styles, optional server-side classes, and browser defaults.
 
-## Custom styles
+## Form validation styles
 
-For custom Bootstrap form validation messages, you'll need to add the `novalidate` boolean attribute to your `<form>`. This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript. Try to submit the form below; our JavaScript will intercept the submit button and relay feedback to you. When attempting to submit, you'll see the `:invalid` and `:valid` styles applied to your form controls.
+Our form validation styles apply custom colors, borders, focus styles, and background icons to better communicate feedback.
 
-Custom feedback styles apply custom colors, borders, focus styles, and background icons to better communicate feedback. Background icons for `<select>`s are only available with `.form-select`, and not `.form-control`.
+For form validation styles, you'll need to add the `novalidate` boolean attribute to your `<form>`. This disables the browser default form validatiom, but still provides access to the form validation APIs in JavaScript. Try to submit the form below, you'll see the `:invalid` and `:valid` styles applied to your form controls. Our JavaScript will intercept the submit button and call the `reportValidity()` method of the form validation API.
 
 {{< example >}}
 <form class="row g-3 needs-validation" novalidate>
   <div class="col-md-4">
     <label for="validationCustom01">First name</label>
     <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationCustom02">Last name</label>
     <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationCustomUsername">Username</label>
@@ -54,17 +48,11 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
         <span class="input-group-text" id="inputGroupPrepend">@</span>
       </div>
       <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-      <div class="invalid-feedback">
-        Please choose a username.
-      </div>
     </div>
   </div>
   <div class="col-md-6">
     <label for="validationCustom03">City</label>
     <input type="text" class="form-control" id="validationCustom03" required>
-    <div class="invalid-feedback">
-      Please provide a valid city.
-    </div>
   </div>
   <div class="col-md-3">
     <label for="validationCustom04">State</label>
@@ -72,16 +60,10 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
       <option selected disabled value="">Choose...</option>
       <option>...</option>
     </select>
-    <div class="invalid-feedback">
-      Please select a valid state.
-    </div>
   </div>
   <div class="col-md-3">
     <label for="validationCustom05">Zip</label>
     <input type="text" class="form-control" id="validationCustom05" required>
-    <div class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
   </div>
   <div class="col-12">
     <div class="form-check">
@@ -89,9 +71,6 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
       <label class="form-check-label" for="invalidCheck">
         Agree to terms and conditions
       </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
     </div>
   </div>
   <div class="col-12">
@@ -114,6 +93,7 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
+          form.reportValidity();
         }
 
         form.classList.add('was-validated');
@@ -179,23 +159,17 @@ While these feedback styles cannot be styled with CSS, you can still customize t
 
 ## Server side
 
-We recommend using client-side validation, but in case you require server-side validation, you can indicate invalid and valid form fields with `.is-invalid` and `.is-valid`. Note that `.invalid-feedback` is also supported with these classes.
+We recommend using client-side validation, but in case you require server-side validation, you can indicate invalid and valid form fields with `.is-invalid` and `.is-valid`.
 
 {{< example >}}
 <form class="row g-3">
   <div class="col-md-4">
     <label for="validationServer01">First name</label>
     <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationServer02">Last name</label>
     <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationServerUsername">Username</label>
@@ -204,17 +178,11 @@ We recommend using client-side validation, but in case you require server-side v
         <span class="input-group-text" id="inputGroupPrepend3">@</span>
       </div>
       <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
-      <div class="invalid-feedback">
-        Please choose a username.
-      </div>
     </div>
   </div>
   <div class="col-md-6">
     <label for="validationServer03">City</label>
     <input type="text" class="form-control is-invalid" id="validationServer03" required>
-    <div class="invalid-feedback">
-      Please provide a valid city.
-    </div>
   </div>
   <div class="col-md-3">
     <label for="validationServer04">State</label>
@@ -222,16 +190,10 @@ We recommend using client-side validation, but in case you require server-side v
       <option selected disabled value="">Choose...</option>
       <option>...</option>
     </select>
-    <div class="invalid-feedback">
-      Please select a valid state.
-    </div>
   </div>
   <div class="col-md-3">
     <label for="validationServer05">Zip</label>
     <input type="text" class="form-control is-invalid" id="validationServer05" required>
-    <div class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
   </div>
   <div class="col-12">
     <div class="form-check">
@@ -239,9 +201,6 @@ We recommend using client-side validation, but in case you require server-side v
       <label class="form-check-label" for="invalidCheck3">
         Agree to terms and conditions
       </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
     </div>
   </div>
   <div class="col-12">
@@ -264,15 +223,11 @@ Validation styles are available for the following form controls and components:
   <div class="mb-3">
     <label for="validationTextarea">Textarea</label>
     <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
-    <div class="invalid-feedback">
-      Please enter a message in the textarea.
-    </div>
   </div>
 
   <div class="form-check mb-3">
     <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
     <label class="form-check-label" for="validationFormCheck1">Check this checkbox</label>
-    <div class="invalid-feedback">Example invalid feedback text</div>
   </div>
 
   <div class="form-check">
@@ -282,7 +237,6 @@ Validation styles are available for the following form controls and components:
   <div class="form-check mb-3">
     <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
     <label class="form-check-label" for="validationFormCheck3">Or toggle this other radio</label>
-    <div class="invalid-feedback">More example invalid feedback text</div>
   </div>
 
   <div class="mb-3">
@@ -292,7 +246,6 @@ Validation styles are available for the following form controls and components:
       <option value="2">Two</option>
       <option value="3">Three</option>
     </select>
-    <div class="invalid-feedback">Example invalid select feedback</div>
   </div>
 
   <div class="form-file">
@@ -301,7 +254,6 @@ Validation styles are available for the following form controls and components:
       <span class="form-file-text">Choose file...</span>
       <span class="form-file-button">Browse</span>
     </label>
-    <div class="invalid-feedback">Example invalid form file feedback</div>
   </div>
 </form>
 {{< /example >}}

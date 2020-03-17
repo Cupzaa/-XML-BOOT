@@ -15,8 +15,6 @@
 
 @mixin form-validation-state($state, $color, $icon) {
   .#{$state}-feedback {
-    display: none;
-    width: 100%;
     margin-top: $form-feedback-margin-top;
     @include font-size($form-feedback-font-size);
     color: $color;
@@ -26,7 +24,6 @@
     position: absolute;
     top: 100%;
     z-index: 5;
-    display: none;
     max-width: 100%; // Contain to parent when possible
     padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
     margin-top: .1rem;
@@ -35,13 +32,6 @@
     color: color-yiq($color);
     background-color: rgba($color, $form-feedback-tooltip-opacity);
     @include border-radius($form-feedback-tooltip-border-radius);
-  }
-
-  @include form-validation-state-selector($state) {
-    ~ .#{$state}-feedback,
-    ~ .#{$state}-tooltip {
-      display: block;
-    }
   }
 
   .form-control {
