@@ -25,10 +25,9 @@
   }
 
   > .form-control {
-    &::-webkit-input-placeholder  { color: transparent; }
-    &::-ms-input-placeholder      { color: transparent; }
-    &::-moz-placeholder           { color: transparent; }
-    &::placeholder                { color: transparent; }
+    &::placeholder {
+      color: transparent;
+    }
 
     &:not(:placeholder-shown) {
       padding-top: $form-floating-input-padding-t;
