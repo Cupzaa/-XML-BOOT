@@ -1,17 +1,17 @@
 .skippy {
-  display: block;
-  padding: 1em;
+  position: fixed;
+  top: .75rem;
+  left: .5rem;
+  z-index: 1072;  // over everything in bootstrap (including doc's navbar)
+  padding: .5rem;
   color: $white;
-  text-align: center;
   background-color: $bd-purple;
-  outline: 0;
 
   @include hover() {
     color: $white;
   }
-}
 
-.skippy-text {
-  padding: .5em;
-  outline: 1px dotted;
+  @include hover-focus-active() {
+    position: fixed;
+  }
 }

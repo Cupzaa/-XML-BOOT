@@ -3,7 +3,7 @@
     {%- include icons/bootstrap.svg width="36" height="36" class="d-block" -%}
   </a>
 
-  <div class="navbar-nav-scroll">
+  <nav class="navbar-nav-scroll" aria-label="Main navigation">
     <ul class="navbar-nav bd-navbar-nav flex-row">
       <li class="nav-item">
         <a class="nav-link {% if page.layout == "home" %}active{% endif %}" href="{{ site.baseurl }}/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
@@ -27,7 +27,7 @@
         <a class="nav-link" href="{{ site.blog }}/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');" target="_blank" rel="noopener">Blog</a>
       </li>
     </ul>
-  </div>
+  </nav>
 
   <ul class="navbar-nav ml-md-auto">
     <li class="nav-item dropdown">
