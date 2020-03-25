@@ -32,13 +32,13 @@
     &:not(:placeholder-shown) {
       padding-top: $form-floating-input-padding-t;
       padding-bottom: $form-floating-input-padding-b;
-    }
 
-    &:not(:placeholder-shown) ~ label {
-      padding-top: $form-floating-label-padding-y;
-      padding-bottom: $form-floating-label-padding-y;
-      @include font-size($form-floating-label-font-size);
-      color: $form-floating-label-color;
+      ~ label {
+        padding-top: $form-floating-label-padding-y;
+        padding-bottom: $form-floating-label-padding-y;
+        @include font-size($form-floating-label-font-size);
+        color: $form-floating-label-color;
+      }
     }
   }
 }
