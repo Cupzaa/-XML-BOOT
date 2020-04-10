@@ -16,12 +16,20 @@ Change the way in which the content is selected when the user interacts with it.
 <p class="user-select-none">This paragraph will not be selectable when clicked by the user.</p>
 {{< /example >}}
 
+## Cursor
+
+Change the cursor of an element to `pointer` with a quick utility class. Add additional cursor utilities by modifying our utilities API.
+
+{{< example >}}
+<a href="#" role="button" class="p-2 bg-light cursor-pointer">Point at me</a>
+{{< /example >}}
+
 ## Pointer events
 
 Bootstrap provides `pe-none` and `pe-auto` classes to prevent or add element interactions.
 
 {{< example >}}
 <p><a href="#" class="pe-none">This link</a> can not be clicked.</p>
-<p><a href="#" class="pe-auto">This link</a> can be clicked (this is default behaviour).</p>
+<p><a href="#" class="pe-auto">This link</a> can be clicked (this is default behavior).</p>
 <p class="pe-none"><a href="#">This link</a> can not be clicked because the <code>pointer-events</code> property is inherited from its parent. However, <a href="#" class="pe-auto">this link</a> has a <code>pe-auto</code> class and can be clicked.</p>
 {{< /example >}}

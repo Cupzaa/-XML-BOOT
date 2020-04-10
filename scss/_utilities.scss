@@ -447,6 +447,10 @@ $utilities: map-merge(
       property: user-select,
       values: all auto none
     ),
+    "cursor": (
+      property: cursor,
+      values: pointer
+    ),
     "pointer-events": (
       property: pointer-events,
       class: pe,
