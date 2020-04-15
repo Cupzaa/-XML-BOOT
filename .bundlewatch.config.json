@@ -2,65 +2,79 @@
   "files": [
     {
       "path": "./dist/css/bootstrap-grid.css",
-      "maxSize": "7.2 kB"
+      "maxSize": "4 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap-grid.min.css",
-      "maxSize": "6.4 kB"
+      "maxSize": "3 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap-reboot.css",
-      "maxSize": "2 kB"
+      "maxSize": "2 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap-reboot.min.css",
-      "maxSize": "2 kB"
+      "maxSize": "2 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap-utilities.css",
-      "maxSize": "8 kB"
+      "maxSize": "4 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap-utilities.min.css",
-      "maxSize": "7 kB"
+      "maxSize": "3.5 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap.css",
-      "maxSize": "25 kB"
+      "maxSize": "17 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/css/bootstrap.min.css",
-      "maxSize": "23 kB"
+      "maxSize": "15.25 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/js/bootstrap.bundle.js",
-      "maxSize": "51 kB"
+      "maxSize": "42 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/js/bootstrap.bundle.min.js",
-      "maxSize": "23 kB"
+      "maxSize": "20 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/js/bootstrap.esm.js",
-      "maxSize": "28 kB"
+      "maxSize": "23 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/js/bootstrap.esm.min.js",
-      "maxSize": "19 kB"
+      "maxSize": "16.25 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/js/bootstrap.js",
-      "maxSize": "29 kB"
+      "maxSize": "23.25 kB",
+      "compression": "brotli"
     },
     {
       "path": "./dist/js/bootstrap.min.js",
-      "maxSize": "16.5 kB"
+      "maxSize": "14.25 kB",
+      "compression": "brotli"
     }
   ],
   "ci": {
     "trackBranches": [
       "master",
       "v4-dev"
-    ]
-  }
+  ]
+}
 }
