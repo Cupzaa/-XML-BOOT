@@ -52,7 +52,7 @@
 
     &[type="checkbox"] {
       @if $enable-gradients {
-        background-image: escape-svg($form-check-input-checked-bg-image), linear-gradient(180deg, lighten($form-check-input-checked-bg-color, 10%), $form-check-input-checked-bg-color);
+        background-image: escape-svg($form-check-input-checked-bg-image), linear-gradient(180deg, tint-color($form-check-input-checked-bg-color, 20%), $form-check-input-checked-bg-color);
       } @else {
         background-image: escape-svg($form-check-input-checked-bg-image);
       }
@@ -60,7 +60,7 @@
 
     &[type="radio"] {
       @if $enable-gradients {
-        background-image: escape-svg($form-check-radio-checked-bg-image), linear-gradient(180deg, lighten($form-check-input-checked-bg-color, 10%), $form-check-input-checked-bg-color);
+        background-image: escape-svg($form-check-radio-checked-bg-image), linear-gradient(180deg, tint-color($form-check-input-checked-bg-color, 20%), $form-check-input-checked-bg-color);
       } @else {
         background-image: escape-svg($form-check-radio-checked-bg-image);
       }
@@ -72,7 +72,7 @@
     border-color: $form-check-input-indeterminate-border-color;
 
     @if $enable-gradients {
-      background-image: escape-svg($form-check-input-indeterminate-bg-image), linear-gradient(180deg, lighten($form-check-input-checked-bg-color, 10%), $form-check-input-checked-bg-color);
+      background-image: escape-svg($form-check-input-indeterminate-bg-image), linear-gradient(180deg, tint-color($form-check-input-checked-bg-color, 20%), $form-check-input-checked-bg-color);
     } @else {
       background-image: escape-svg($form-check-input-indeterminate-bg-image);
     }
@@ -121,7 +121,7 @@
       background-position: $form-switch-checked-bg-position;
 
       @if $enable-gradients {
-        background-image: escape-svg($form-switch-checked-bg-image), linear-gradient(180deg, $form-check-input-checked-bg-color, lighten($form-check-input-checked-bg-color, 10%));
+        background-image: escape-svg($form-switch-checked-bg-image), linear-gradient(180deg, $form-check-input-checked-bg-color, tint-color($form-check-input-checked-bg-color, 20%));
       } @else {
         background-image: escape-svg($form-switch-checked-bg-image);
       }

@@ -7,11 +7,9 @@
   $background,
   $border,
   $color: color-contrast($background),
-  $hover-background: darken($background, 7.5%),
-  $hover-border: darken($border, 10%),
+  $hover-background: shade-color($background, 15%),
   $hover-color: color-contrast($hover-background),
-  $active-background: darken($background, 10%),
-  $active-border: darken($border, 12.5%),
+  $active-background: shade-color($background, 20%),
   $active-color: color-contrast($active-background)
 ) {
   color: $color;
@@ -22,14 +20,13 @@
   &:hover {
     color: $hover-color;
     @include gradient-bg($hover-background);
-    border-color: $hover-border;
   }
 
   &:focus,
   &.focus {
     color: $hover-color;
     @include gradient-bg($hover-background);
-    border-color: $hover-border;
+
     @if $enable-shadows {
       @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5));
     } @else {
@@ -45,7 +42,6 @@
     background-color: $active-background;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
-    border-color: $active-border;
 
     &:focus {
       @if $enable-shadows {
