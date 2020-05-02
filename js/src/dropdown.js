@@ -379,7 +379,7 @@ class Dropdown {
 
     const toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE)
 
-    for (let i = 0, len = toggles.length; i < len; i++) {
+    for (let i = 0; i < toggles.length; i++) {
       const parent = Dropdown.getParentFromElement(toggles[i])
       const context = Data.getData(toggles[i], DATA_KEY)
       const relatedTarget = {

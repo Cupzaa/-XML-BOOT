@@ -78,7 +78,7 @@ class Collapse {
 
     const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE)
 
-    for (let i = 0, len = toggleList.length; i < len; i++) {
+    for (let i = 0; i < toggleList.length; i++) {
       const elem = toggleList[i]
       const selector = getSelectorFromElement(elem)
       const filterElement = SelectorEngine.find(selector)
