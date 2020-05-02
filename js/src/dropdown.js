@@ -475,7 +475,7 @@ class Dropdown {
     const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, parent)
       .filter(isVisible)
 
-    if (!items.length) {
+    if (items.length === 0) {
       return
     }
 

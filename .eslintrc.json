@@ -37,7 +37,12 @@
       "never"
     ],
     "unicorn/consistent-function-scoping": "off",
-    "unicorn/explicit-length-check": "off",
+    "unicorn/explicit-length-check": [
+      "error",
+      {
+        "non-zero": "greater-than"
+      }
+    ],
     "unicorn/import-index": "off",
     "unicorn/no-fn-reference-in-iterator": "off",
     "unicorn/no-null": "off",
