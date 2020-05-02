@@ -242,7 +242,7 @@ class Modal {
     if (!this._element.parentNode ||
         this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
       // Don't move modal's DOM position
-      document.body.appendChild(this._element)
+      document.body.append(this._element)
     }
 
     this._element.style.display = 'block'
@@ -333,7 +333,7 @@ class Modal {
   }
 
   _removeBackdrop() {
-    this._backdrop.parentNode.removeChild(this._backdrop)
+    this._backdrop.remove()
     this._backdrop = null
   }
 
@@ -350,7 +350,7 @@ class Modal {
         this._backdrop.classList.add(animate)
       }
 
-      document.body.appendChild(this._backdrop)
+      document.body.append(this._backdrop)
 
       EventHandler.on(this._element, EVENT_CLICK_DISMISS, event => {
         if (this._ignoreBackdropClick) {
@@ -515,9 +515,9 @@ class Modal {
   _getScrollbarWidth() { // thx d.walsh
     const scrollDiv = document.createElement('div')
     scrollDiv.className = CLASS_NAME_SCROLLBAR_MEASURER
-    document.body.appendChild(scrollDiv)
+    document.body.append(scrollDiv)
     const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth
-    document.body.removeChild(scrollDiv)
+    scrollDiv.remove()
     return scrollbarWidth
   }
 

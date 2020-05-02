@@ -230,7 +230,7 @@ class Tooltip {
     EventHandler.off(this.element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler)
 
     if (this.tip) {
-      this.tip.parentNode.removeChild(this.tip)
+      this.tip.remove()
     }
 
     this._isEnabled = null
@@ -286,7 +286,7 @@ class Tooltip {
       Data.setData(tip, this.constructor.DATA_KEY, this)
 
       if (!this.element.ownerDocument.documentElement.contains(this.tip)) {
-        container.appendChild(tip)
+        container.append(tip)
       }
 
       EventHandler.trigger(this.element, this.constructor.Event.INSERTED)
@@ -334,7 +334,7 @@ class Tooltip {
     const tip = this.getTipElement()
     const complete = () => {
       if (this._hoverState !== HOVER_STATE_SHOW && tip.parentNode) {
-        tip.parentNode.removeChild(tip)
+        tip.remove()
       }
 
       this._cleanTipClass()
@@ -417,7 +417,7 @@ class Tooltip {
       if (this.config.html) {
         if (content.parentNode !== element) {
           element.innerHTML = ''
-          element.appendChild(content)
+          element.append(content)
         }
       } else {
         element.textContent = content.textContent
