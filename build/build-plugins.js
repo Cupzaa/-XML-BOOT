@@ -129,18 +129,18 @@ const getConfigByPluginKey = pluginKey => {
   }
 }
 
-const utilObjects = [
+const utilObjects = new Set([
   'Util',
   'Sanitizer'
-]
+])
 
-const domObjects = [
+const domObjects = new Set([
   'Data',
   'EventHandler',
   'Manipulator',
   'Polyfill',
   'SelectorEngine'
-]
+])
 
 const build = async plugin => {
   console.log(`Building ${plugin} plugin...`)
@@ -149,11 +149,11 @@ const build = async plugin => {
   const pluginFilename = path.basename(bsPlugins[plugin])
   let pluginPath = rootPath
 
-  if (utilObjects.includes(plugin)) {
+  if (utilObjects.has(plugin)) {
     pluginPath = `${rootPath}/util/`
   }
 
-  if (domObjects.includes(plugin)) {
+  if (domObjects.has(plugin)) {
     pluginPath = `${rootPath}/dom/`
   }
 

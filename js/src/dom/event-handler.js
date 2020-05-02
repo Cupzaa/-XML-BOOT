@@ -24,7 +24,7 @@ const customEvents = {
   mouseenter: 'mouseover',
   mouseleave: 'mouseout'
 }
-const nativeEvents = [
+const nativeEvents = new Set([
   'click',
   'dblclick',
   'mouseup',
@@ -71,7 +71,7 @@ const nativeEvents = [
   'error',
   'abort',
   'scroll'
-]
+])
 
 /**
  * ------------------------------------------------------------------------
@@ -149,7 +149,7 @@ function normalizeParams(originalTypeEvent, handler, delegationFn) {
     typeEvent = custom
   }
 
-  const isNative = nativeEvents.includes(typeEvent)
+  const isNative = nativeEvents.has(typeEvent)
 
   if (!isNative) {
     typeEvent = originalTypeEvent
@@ -273,7 +273,7 @@ const EventHandler = {
 
     const typeEvent = event.replace(stripNameRegex, '')
     const inNamespace = event !== typeEvent
-    const isNative = nativeEvents.includes(typeEvent)
+    const isNative = nativeEvents.has(typeEvent)
 
     let jQueryEvent
     let bubbles = true
