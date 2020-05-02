@@ -46,8 +46,8 @@ const allowedAttribute = (attr, allowedAttributeList) => {
   const regExp = allowedAttributeList.filter(attrRegex => attrRegex instanceof RegExp)
 
   // Check if a regular expression validates the attribute.
-  for (let i = 0; i < regExp.length; i++) {
-    if (attrName.match(regExp[i])) {
+  for (const element of regExp) {
+    if (attrName.match(element)) {
       return true
     }
   }
@@ -103,8 +103,7 @@ export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
   const whitelistKeys = Object.keys(whiteList)
   const elements = [].concat(...createdDocument.body.querySelectorAll('*'))
 
-  for (let i = 0; i < elements.length; i++) {
-    const el = elements[i]
+  for (const el of elements) {
     const elName = el.nodeName.toLowerCase()
 
     if (!whitelistKeys.includes(elName)) {

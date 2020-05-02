@@ -40,7 +40,6 @@
     "unicorn/explicit-length-check": "off",
     "unicorn/import-index": "off",
     "unicorn/no-fn-reference-in-iterator": "off",
-    "unicorn/no-for-loop": "off",
     "unicorn/no-null": "off",
     "unicorn/no-unused-properties": "error",
     "unicorn/no-useless-undefined": "off",
