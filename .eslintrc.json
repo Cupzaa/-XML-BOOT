@@ -45,7 +45,6 @@
     "unicorn/no-unused-properties": "error",
     "unicorn/no-useless-undefined": "off",
     "unicorn/prefer-dataset": "off",
-    "unicorn/prefer-includes": "off",
     "unicorn/prefer-node-append": "off",
     "unicorn/prefer-node-remove": "off",
     "unicorn/prefer-number-properties": "off",

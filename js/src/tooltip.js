@@ -678,7 +678,7 @@ class Tooltip {
 
     Object.keys(dataAttributes)
       .forEach(dataAttr => {
-        if (DISALLOWED_ATTRIBUTES.indexOf(dataAttr) !== -1) {
+        if (DISALLOWED_ATTRIBUTES.includes(dataAttr)) {
           delete dataAttributes[dataAttr]
         }
       })
