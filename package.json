@@ -35,7 +35,7 @@
     "js-compile-standalone-esm": "rollup --environment ESM:true,BUNDLE:false --config build/rollup.config.js --sourcemap",
     "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.js --sourcemap",
     "js-compile-plugins": "node build/build-plugins.js",
-    "js-lint": "eslint --cache --cache-location .cache/.eslintcache --report-unused-disable-directives .",
+    "js-lint": "xo",
     "js-minify": "npm-run-all --parallel js-minify-*",
     "js-minify-standalone": "terser --compress --mangle --comments \"/^!/\" --source-map \"content=dist/js/bootstrap.js.map,includeSources,url=bootstrap.min.js.map\" --output dist/js/bootstrap.min.js dist/js/bootstrap.js",
     "js-minify-standalone-esm": "terser --compress --mangle --comments \"/^!/\" --source-map \"content=dist/js/bootstrap.esm.js.map,includeSources,url=bootstrap.esm.min.js.map\" --output dist/js/bootstrap.esm.min.js dist/js/bootstrap.esm.js",
@@ -103,10 +103,6 @@
     "bundlewatch": "^0.2.7",
     "clean-css-cli": "^4.3.0",
     "cross-env": "^7.0.2",
-    "eslint": "^7.1.0",
-    "eslint-config-xo": "^0.29.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-unicorn": "^20.0.0",
     "find-unused-sass-variables": "^2.0.0",
     "glob": "^7.1.6",
     "hammer-simulator": "0.0.1",
@@ -136,7 +132,8 @@
     "stylelint": "^13.5.0",
     "stylelint-config-twbs-bootstrap": "^2.0.2",
     "terser": "^4.7.0",
-    "vnu-jar": "20.3.16"
+    "vnu-jar": "20.3.16",
+    "xo": "^0.30.0"
   },
   "files": [
     "dist/{css,js}/*.{css,js,map}",
@@ -163,5 +160,100 @@
     "peerDependencies": {
       "popper.js": "^1.16.0"
     }
+  },
+  "xo": {
+    "envs": [
+      "browser"
+    ],
+    "esnext": true,
+    "semicolons": false,
+    "space": 2,
+    "ignores": [
+      "**/*.min.js",
+      "**/dist/**",
+      "**/vendor/**",
+      "site/static/sw.js",
+      "package.js"
+    ],
+    "rules": {
+      "capitalized-comments": "off",
+      "import/no-mutable-exports": "off",
+      "import/no-useless-path-segments": "off",
+      "max-params": [
+        "warn",
+        5
+      ],
+      "multiline-ternary": [
+        "error",
+        "always-multiline"
+      ],
+      "new-cap": "off",
+      "no-console": "error",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "prefer-named-capture-group": "off",
+      "semi": [
+        "error",
+        "never"
+      ],
+      "unicorn/consistent-function-scoping": "off",
+      "unicorn/explicit-length-check": [
+        "error",
+        {
+          "non-zero": "greater-than"
+        }
+      ],
+      "unicorn/import-index": "off",
+      "unicorn/no-fn-reference-in-iterator": "off",
+      "unicorn/no-for-loop": "off",
+      "unicorn/no-null": "off",
+      "unicorn/no-unused-properties": "error",
+      "unicorn/prefer-dataset": "off",
+      "unicorn/prefer-node-append": "off",
+      "unicorn/prefer-node-remove": "off",
+      "unicorn/prefer-query-selector": "off",
+      "unicorn/prevent-abbreviations": "off"
+    },
+    "overrides": [
+      {
+        "files": "build/*.js",
+        "envs": [
+          "node"
+        ],
+        "parserOptions": {
+          "sourceType": "script"
+        },
+        "rules": {
+          "no-console": "off",
+          "strict": "error"
+        }
+      },
+      {
+        "files": "js/tests/unit/**/*.js",
+        "envs": [
+          "jasmine"
+        ]
+      },
+      {
+        "files": "site/**/*.js",
+        "envs": [
+          "browser"
+        ],
+        "esnext": false,
+        "parserOptions": {
+          "ecmaVersion": 5,
+          "sourceType": "script"
+        },
+        "rules": {
+          "no-new": "off",
+          "strict": [
+            "error",
+            "function"
+          ]
+        }
+      }
+    ]
   }
 }
