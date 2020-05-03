@@ -82,18 +82,6 @@
           }
         })
       })
-
-      // Display fixture on-screen on iOS to avoid false positives
-      // See https://github.com/twbs/bootstrap/pull/15955
-      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-        QUnit.begin(function() {
-          $('#qunit-fixture').css({ top: 0, left: 0 })
-        })
-
-        QUnit.done(function() {
-          $('#qunit-fixture').css({ top: '', left: '' })
-        })
-      }
     </script>
 
     <!-- Transpiled Plugins -->
