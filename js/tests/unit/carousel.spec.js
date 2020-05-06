@@ -13,7 +13,7 @@ describe('Carousel', () => {
 
   const stylesCarousel = document.createElement('style')
   stylesCarousel.type = 'text/css'
-  stylesCarousel.append(document.createTextNode(cssStyleCarousel))
+  stylesCarousel.appendChild(document.createTextNode(cssStyleCarousel))
 
   const clearPointerEvents = () => {
     window.PointerEvent = null
@@ -309,7 +309,7 @@ describe('Carousel', () => {
       }
 
       document.documentElement.ontouchstart = () => {}
-      document.head.append(stylesCarousel)
+      document.head.appendChild(stylesCarousel)
       Simulator.setType('pointer')
 
       fixtureEl.innerHTML = [
@@ -334,7 +334,7 @@ describe('Carousel', () => {
       carouselEl.addEventListener('slid.bs.carousel', () => {
         expect(item.classList.contains('active')).toEqual(true)
         expect(carousel.prev).toHaveBeenCalled()
-        stylesCarousel.remove()
+        document.head.removeChild(stylesCarousel)
         delete document.documentElement.ontouchstart
         done()
       })
@@ -353,7 +353,7 @@ describe('Carousel', () => {
       }
 
       document.documentElement.ontouchstart = () => {}
-      document.head.append(stylesCarousel)
+      document.head.appendChild(stylesCarousel)
       Simulator.setType('pointer')
 
       fixtureEl.innerHTML = [
@@ -378,7 +378,7 @@ describe('Carousel', () => {
       carouselEl.addEventListener('slid.bs.carousel', () => {
         expect(item.classList.contains('active')).toEqual(false)
         expect(carousel.next).toHaveBeenCalled()
-        stylesCarousel.remove()
+        document.head.removeChild(stylesCarousel)
         delete document.documentElement.ontouchstart
         done()
       })

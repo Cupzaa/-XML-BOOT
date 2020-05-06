@@ -108,7 +108,7 @@ export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
     const elName = el.nodeName.toLowerCase()
 
     if (!whitelistKeys.includes(elName)) {
-      el.remove()
+      el.parentNode.removeChild(el)
 
       continue
     }
