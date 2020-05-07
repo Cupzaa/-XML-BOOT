@@ -12,21 +12,21 @@ const browsers = {
   safariMac: {
     base: 'BrowserStack',
     os: 'OS X',
-    os_version: 'Catalina',
+    os_version: 'Mojave',
     browser: 'Safari',
     browser_version: 'latest'
   },
   chromeMac: {
     base: 'BrowserStack',
     os: 'OS X',
-    os_version: 'Catalina',
+    os_version: 'Mojave',
     browser: 'Chrome',
     browser_version: 'latest'
   },
   firefoxMac: {
     base: 'BrowserStack',
     os: 'OS X',
-    os_version: 'Catalina',
+    os_version: 'Mojave',
     browser: 'Firefox',
     browser_version: 'latest'
   },
