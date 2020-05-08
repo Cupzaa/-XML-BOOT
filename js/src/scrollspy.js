@@ -192,9 +192,7 @@ class ScrollSpy {
   _process() {
     const scrollTop    = this._getScrollTop() + this._config.offset
     const scrollHeight = this._getScrollHeight()
-    const maxScroll    = this._config.offset +
-      scrollHeight -
-      this._getOffsetHeight()
+    const maxScroll    = this._config.offset + scrollHeight - this._getOffsetHeight()
 
     if (this._scrollHeight !== scrollHeight) {
       this.refresh()
