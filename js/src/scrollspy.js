@@ -158,10 +158,11 @@ class ScrollSpy {
     }
 
     if (typeof config.target !== 'string') {
-      let id = $(config.target).attr('id')
+      const $target = $(document).find(config.target)
+      let id = $target.attr('id')
       if (!id) {
         id = Util.getUID(NAME)
-        $(config.target).attr('id', id)
+        $target.attr('id', id)
       }
       config.target = `#${id}`
     }
