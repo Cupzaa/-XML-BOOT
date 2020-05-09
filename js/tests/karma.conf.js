@@ -60,7 +60,10 @@ const conf = {
   },
   files: [
     'node_modules/hammer-simulator/index.js',
-    { pattern: 'js/tests/unit/**/!(jquery).spec.js', watched: !browserStack }
+    {
+      pattern: 'js/tests/unit/**/!(jquery).spec.js',
+      watched: !browserStack
+    }
   ],
   preprocessors: {
     'js/tests/unit/**/*.spec.js': ['rollup']
@@ -68,7 +71,11 @@ const conf = {
   rollupPreprocessor: {
     plugins: [
       istanbul({
-        exclude: ['js/tests/unit/**/*.spec.js', 'js/tests/helpers/**/*.js']
+        exclude: [
+          'node_modules/**',
+          'js/tests/unit/**/*.spec.js',
+          'js/tests/helpers/**/*.js'
+        ]
       }),
       babel({
         // Only transpile our source code
@@ -113,7 +120,10 @@ if (browserStack) {
   conf.detectBrowsers = detectBrowsers
   conf.files = [
     'node_modules/jquery/dist/jquery.slim.min.js',
-    { pattern: 'js/tests/unit/jquery.spec.js', watched: false }
+    {
+      pattern: 'js/tests/unit/jquery.spec.js',
+      watched: false
+    }
   ]
 } else {
   frameworks.push('detectBrowsers')
@@ -121,31 +131,31 @@ if (browserStack) {
     'karma-chrome-launcher',
     'karma-firefox-launcher',
     'karma-detect-browsers',
-    'karma-coverage-istanbul-reporter'
+    'karma-coverage'
   )
-  reporters.push('coverage-istanbul')
   conf.customLaunchers = customLaunchers
   conf.detectBrowsers = detectBrowsers
-  conf.coverageIstanbulReporter = {
+  reporters.push('coverage')
+  conf.coverageReporter = {
     dir: path.resolve(__dirname, '../coverage/'),
-    reports: ['lcov', 'text-summary'],
-    thresholds: {
-      emitWarning: false,
+    subdir: '.',
+    reporters: [
+      { type: 'html', subdir: '.' },
+      { type: 'lcovonly', subdir: '.' },
+      { type: 'text-summary', subdir: '.', file: '' }
+    ],
+    includeAllSources: true,
+    instrumenterOptions: {
+      istanbul: {
+        noCompact: true
+      }
+    },
+    check: {
       global: {
         statements: 90,
         branches: 90,
         functions: 90,
         lines: 90
-      },
-      each: {
-        overrides: {
-          'js/src/dom/polyfill.js': {
-            statements: 39,
-            lines: 37,
-            branches: 19,
-            functions: 50
-          }
-        }
       }
     }
   }
