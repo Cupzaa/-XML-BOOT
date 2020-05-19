@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): tooltip.js
+ * Bootstrap (v5.0.0-alpha1): tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -33,7 +33,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'tooltip'
-const VERSION = '4.3.1'
+const VERSION = '5.0.0-alpha1'
 const DATA_KEY = 'bs.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
 const CLASS_PREFIX = 'bs-tooltip'
@@ -227,7 +227,7 @@ class Tooltip {
     Data.removeData(this.element, this.constructor.DATA_KEY)
 
     EventHandler.off(this.element, this.constructor.EVENT_KEY)
-    EventHandler.off(SelectorEngine.closest(this.element, `.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler)
+    EventHandler.off(this.element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler)
 
     if (this.tip) {
       this.tip.parentNode.removeChild(this.tip)
@@ -556,7 +556,7 @@ class Tooltip {
       }
     }
 
-    EventHandler.on(SelectorEngine.closest(this.element, `.${CLASS_NAME_MODAL}`),
+    EventHandler.on(this.element.closest(`.${CLASS_NAME_MODAL}`),
       'hide.bs.modal',
       this._hideModalHandler
     )
