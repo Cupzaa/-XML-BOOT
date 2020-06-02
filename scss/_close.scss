@@ -2,10 +2,11 @@
   width: $close-width;
   height: $close-height;
   @include font-size($close-font-size);
-  font-weight: $close-font-weight;
-  line-height: 1;
   color: $close-color;
-  text-shadow: $close-text-shadow;
+  background-image: escape-svg($close-icon);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
   opacity: .5;
 
   // Override <a>'s hover style

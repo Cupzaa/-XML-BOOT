@@ -9,10 +9,7 @@ group: components
 
 {{< example >}}
 <button type="button" class="close" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
 </button>
 
-<button type="button" class="close" disabled aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button>
+<button type="button" class="close" disabled aria-label="Close"></button>
 {{< /example >}}
