@@ -23,13 +23,13 @@ body {
   margin-bottom: 1rem;
 }
 
-.form-label-group > input,
-.form-label-group > label {
+.form-label-group input,
+.form-label-group label {
   height: 3.125rem;
   padding: .75rem;
 }
 
-.form-label-group > label {
+.form-label-group label {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,18 +41,6 @@ body {
   border: 1px solid transparent;
   border-radius: .25rem;
   transition: all .1s ease-in-out;
-}
-
-.form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-moz-placeholder {
-  color: transparent;
 }
 
 .form-label-group input::placeholder {
