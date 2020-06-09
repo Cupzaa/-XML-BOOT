@@ -3,9 +3,9 @@
 defaults
 Chrome >= 60
 Firefox >= 60
-Edge >= 16.16299
 iOS >= 10
 Safari >= 10
 Android >= 8
+not Edge < 79
 not Explorer <= 11
 not ExplorerMobile <= 11
